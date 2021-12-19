@@ -6,6 +6,11 @@ add_compile_definitions(ANIM_BREAK_STUDIO_MAJOR_VERSION=1)
 add_compile_definitions(ANIM_BREAK_STUDIO_MINOR_VERSION=0)
 add_compile_definitions(ANIM_BREAK_STUDIO_PATCH_VERSION=0)
 
+add_compile_definitions(REQUIRED_ANIM_BREAK_STUDIO_MAJOR_VERSION=1)
+add_compile_definitions(REQUIRED_ANIM_BREAK_STUDIO_MINOR_VERSION=0)
+add_compile_definitions(REQUIRED_ANIM_BREAK_STUDIO_PATCH_VERSION=0)
+
+
 include_directories("include")
 
 add_subdirectory("third-party/doctest")
