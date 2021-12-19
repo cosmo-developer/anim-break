@@ -5,7 +5,8 @@ include_directories("third-party/doctest")
 
 add_executable(
 	unit-test 
-	"sample_test.cc"
+	sample_test.cc
+	version_check_test.cc
 )
 
 set_target_properties(unit-test PROPERTIES
