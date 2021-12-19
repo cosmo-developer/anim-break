@@ -10,6 +10,6 @@ TEST_CASE("CheckingVersion")
 		REQUIRE(ANIM_BREAK_STUDIO_MINOR_VERSION==get_minor_version());
 	}
 	SUBCASE("PatchVersion"){
-		REQUIRE(ANIM_BREAK_STUDIO_MAJOR_VERSION==get_patch_version());
+		REQUIRE(ANIM_BREAK_STUDIO_PATCH_VERSION==get_patch_version());
 	}
 }
