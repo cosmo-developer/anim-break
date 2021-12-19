@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: C/C++ CI Ubuntu-Latest
 
 on:
   push:
@@ -17,8 +17,10 @@ jobs:
       run: git submodule init
     - name: Installing Dependencies
       run: git submodule update
-    - name: Installing libxrandr-dev and libxinerama-dev packages
-      run: sudo apt-get install -y libxrandr-dev & sudo apt-get install -y libxinerama-dev
+    - name: Installing libxrandr-dev
+      run: sudo apt-get install -y libxrandr-dev
+    - name: Installing libxinerama-dev
+      run: sudo apt-get install -y libxinerama-dev
     - name: Create Project Setup Cmake
       run: cmake .
     - name: Build with make
