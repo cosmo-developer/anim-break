@@ -18,7 +18,7 @@ jobs:
     - name: Installing Dependencies
       run: git submodule update
     - name: Installing libxrandr-dev packages
-      run: apt-get install -y libxrandr-dev
+      run: sudo apt-get install -y libxrandr-dev
     - name: Create Project Setup Cmake
       run: cmake .
     - name: Build with make
