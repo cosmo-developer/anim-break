@@ -1,0 +1,13 @@
+build/
+x64/
+x86/
+Release/
+Debug/
+*.dll
+*.obj
+*.lib
+*.vcxproj
+*.sln
+*.bin
+*.a
+*.out

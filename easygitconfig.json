@@ -1,0 +1,23 @@
+{
+	"EasyGitConfigData":{
+		"user-name":{
+			"dtype":"media/text",
+			"value":"cosmo-developer",
+			"ask":"off",
+			"mode":"cui"
+		},
+		
+		"repository":{
+			"dtype":"media/text",
+			"value":"anim-break",
+			"ask":"off",
+			"mode":"gui"
+		},
+		"gpg_key_path":{
+			"dtype":"media/file",
+			"value":"",
+			"ask":"on",
+			"mode":"gui"
+		}
+	}
+}

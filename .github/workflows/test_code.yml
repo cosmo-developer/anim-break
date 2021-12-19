@@ -1,0 +1,29 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Checking out dependencies
+      run: git submodule init
+    - name: Installing Dependencies
+      run: git submodule update
+    - name: Create Project Setup Cmake
+      run: cmake .
+    - name: Build with make
+      run: cmake --build .
+    - name: Running main app
+      run: ./anim-break
+    - name: Running test
+      run: ./unit-test
+    - name: Show Directory
+      run: ls

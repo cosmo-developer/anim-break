@@ -1,0 +1,12 @@
+[submodule "third-party/doctest"]
+	path = third-party/doctest
+	url = https://github.com/doctest/doctest.git
+[submodule "third-party/spdlog"]
+	path = third-party/spdlog
+	url = https://github.com/gabime/spdlog.git
+[submodule "third-party/pugixml"]
+	path = third-party/pugixml
+	url = https://github.com/zeux/pugixml.git
+[submodule "third-party/zlib"]
+	path = third-party/zlib
+	url = https://github.com/madler/zlib.git
