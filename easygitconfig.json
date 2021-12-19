@@ -3,14 +3,14 @@
 		"user-name":{
 			"dtype":"media/text",
 			"value":"cosmo-developer",
-			"ask":"off",
-			"mode":"cui"
+			"ask":"on",
+			"mode":"gui"
 		},
 		
 		"repository":{
 			"dtype":"media/text",
 			"value":"anim-break",
-			"ask":"off",
+			"ask":"on",
 			"mode":"gui"
 		},
 		"gpg_key_path":{
