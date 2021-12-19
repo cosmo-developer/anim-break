@@ -24,6 +24,6 @@ jobs:
     - name: Running main app
       run: ./anim-break
     - name: Running test
-      run: ./unit-test
+      run: ./unit-test/unit-test
     - name: Show Directory
       run: ls
