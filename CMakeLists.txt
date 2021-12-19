@@ -18,7 +18,7 @@ add_subdirectory("third-party/doctest")
 add_subdirectory("third-party/pugixml")
 add_subdirectory("third-party/spdlog")
 add_subdirectory("third-party/zlib")
-add_subdirectory("third-party/glfw")
+#add_subdirectory("third-party/glfw")
 
 add_subdirectory("unit-test")
 
