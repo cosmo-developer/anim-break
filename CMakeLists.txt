@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(anim-break)
+project(anim-break VERSION 1.0.0)
+
+add_compile_definitions(ANIM_BREAK_STUDIO_MAJOR_VERSION=1)
+add_compile_definitions(ANIM_BREAK_STUDIO_MINOR_VERSION=0)
+add_compile_definitions(ANIM_BREAK_STUDIO_PATCH_VERSION=0)
+
 
 add_subdirectory("third-party/doctest")
 add_subdirectory("third-party/pugixml")
