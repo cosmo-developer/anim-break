@@ -19,7 +19,7 @@ jobs:
       run: git submodule update
     - name: Create Project Setup Cmake
       run: cmake .
-    - name: Build with make
+    - name: Build with Windows Build System (VisualStudio)
       run: cmake --build .
     - name: Running Unit-Test
       run: "./unit-test/Debug/unit-test"
