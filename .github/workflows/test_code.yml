@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: linux
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -17,6 +17,8 @@ jobs:
       run: git submodule init
     - name: Installing Dependencies
       run: git submodule update
+    - name: Installing libxrandr-dev packages
+      run: apt-get install -y libxrandr-dev
     - name: Create Project Setup Cmake
       run: cmake .
     - name: Build with make
