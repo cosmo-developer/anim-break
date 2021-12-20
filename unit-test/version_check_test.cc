@@ -4,12 +4,12 @@
 TEST_CASE("CheckingVersion")
 {
 	SUBCASE("MajorVersion"){
-		REQUIRE(REQUIRED_ANIM_BREAK_STUDIO_MAJOR_VERSION==get_major_version());
+		REQUIRE(REQUIRED_ANIM_BREAK_STUDIO_MAJOR_VERSION==anim::get_major_version());
 	}
 	SUBCASE("MinorVersion"){
-		REQUIRE(REQUIRED_ANIM_BREAK_STUDIO_MINOR_VERSION==get_minor_version());
+		REQUIRE(REQUIRED_ANIM_BREAK_STUDIO_MINOR_VERSION==anim::get_minor_version());
 	}
 	SUBCASE("PatchVersion"){
-		REQUIRE(REQUIRED_ANIM_BREAK_STUDIO_PATCH_VERSION==get_patch_version());
+		REQUIRE(REQUIRED_ANIM_BREAK_STUDIO_PATCH_VERSION==anim::get_patch_version());
 	}
 }
