@@ -11,6 +11,8 @@ add_compile_definitions(REQUIRED_ANIM_BREAK_STUDIO_MAJOR_VERSION=1)
 add_compile_definitions(REQUIRED_ANIM_BREAK_STUDIO_MINOR_VERSION=0)
 add_compile_definitions(REQUIRED_ANIM_BREAK_STUDIO_PATCH_VERSION=0)
 
+file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.cc")
+
 
 include_directories("include")
 
@@ -22,6 +24,6 @@ add_subdirectory("third-party/zlib")
 
 add_subdirectory("unit-test")
 
-add_executable(anim-break "main.cc")
+add_executable(anim-break "main.cc" ${SOURCES})
 
 target_link_libraries(anim-break box2d zlib spdlog pugixml glfw)

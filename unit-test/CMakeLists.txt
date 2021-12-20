@@ -4,7 +4,8 @@ project(unit-test)
 include_directories("third-party/doctest")
 
 add_executable(
-	unit-test 
+	unit-test
+	${SOURCES}
 	sample_test.cc
 	version_check_test.cc
 )
