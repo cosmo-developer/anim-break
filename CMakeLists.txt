@@ -42,4 +42,4 @@ add_subdirectory("unit-test")
 
 add_executable(anim-break "main.cc" ${SOURCES})
 
-target_link_libraries(anim-break box2d zlib spdlog pugixml glfw)
+target_link_libraries(anim-break PUBLIC glfw opengl32 box2d zlib spdlog pugixml)

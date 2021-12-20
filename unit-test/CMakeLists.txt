@@ -8,6 +8,7 @@ add_executable(
 	${SOURCES}
 	sample_test.cc
 	version_check_test.cc
+	window_manager_test.cc
 )
 
 set_target_properties(unit-test PROPERTIES
@@ -16,4 +17,4 @@ set_target_properties(unit-test PROPERTIES
     CXX_EXTENSIONS NO
 )
 
-target_link_libraries(unit-test "doctest_with_main")
+target_link_libraries(unit-test "doctest_with_main" glfw box2d pugixml zlib spdlog)
