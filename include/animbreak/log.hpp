@@ -4,6 +4,5 @@ namespace anim{
 		public:
 			static void load_levels(const int argc,const char** argv);
 			static void load_levels();
-			
 	};
 }

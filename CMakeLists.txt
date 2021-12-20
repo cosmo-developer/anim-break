@@ -11,10 +11,17 @@ add_compile_definitions(REQUIRED_ANIM_BREAK_STUDIO_MAJOR_VERSION=1)
 add_compile_definitions(REQUIRED_ANIM_BREAK_STUDIO_MINOR_VERSION=0)
 add_compile_definitions(REQUIRED_ANIM_BREAK_STUDIO_PATCH_VERSION=0)
 
+
+#Unsupported API Defined Here
+add_compile_definitions(anim_log__load_levels_const_int_argc__const_char_pp_argv)
+#End of Unsupported API
+
+include_directories("include" "third-party/spdlog/include")
+
+
 file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.cc")
 
 
-include_directories("include")
 
 add_subdirectory("third-party/box2d")
 add_subdirectory("third-party/doctest")
