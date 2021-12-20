@@ -85,6 +85,10 @@ namespace anim{
 				const anim_window* get_parent(){
 					return dynamic_cast<anim_window*>(parent);
 				}
+				~anim_window_impl(){
+					delete [] title;
+				}
+				
 	};
 	
 	anim_window::~anim_window(){
