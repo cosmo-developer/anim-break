@@ -16,11 +16,20 @@ add_compile_definitions(REQUIRED_ANIM_BREAK_STUDIO_PATCH_VERSION=0)
 add_compile_definitions(anim_log__load_levels_const_int_argc__const_char_pp_argv)
 #End of Unsupported API
 
-include_directories("include" "third-party/spdlog/include")
+include_directories("include" 
+	"third-party/spdlog/include" 
+	"third-party/imgui" 
+	"third-party/imgui/backends"
+	"third-party/glfw/include"
+	)
 
 
 file(GLOB SOURCES CONFIGURE_DEPENDS "src/*.cc")
 
+set(IMGUI_SOURCES "third-party/imgui/imgui.cpp" "third-party/imgui/imgui_demo.cpp"
+	"third-party/imgui/imgui_draw.cpp" "third-party/imgui/imgui_tables.cpp"
+	"third-party/imgui/imgui_widgets.cpp" "third-party/imgui/backends/imgui_impl_glfw.cpp"
+	"third-party/imgui/backends/imgui_impl_opengl3.cpp")
 
 
 add_subdirectory("third-party/box2d")

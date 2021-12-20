@@ -7,5 +7,5 @@
 namespace anim{
 	class anim_window_impl:public anim_window{
 		
-	}
+	};
 }
