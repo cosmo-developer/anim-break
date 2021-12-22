@@ -7,6 +7,7 @@
 #include <glfw/glfw3.h>
 #include <animbreak/log.hpp>
 #include <string>
+#include <thread>
 
 namespace anim{
 	class anim_window_impl:public anim_window{
@@ -14,19 +15,57 @@ namespace anim{
 		GLFWwindow* winpointer;
 		char* title;
 		int width,height,x,y;
+		std::thread thread_worker[1];
 		void get_size_property(){
 			glfwGetWindowSize(winpointer,&width,&height);
 			glfwGetWindowPos(winpointer,&x,&y);
 		}
-		
+		static void anim_window_thread_worker(anim_window_impl* pointer){
+			
+			GLFWwindow* window=pointer->winpointer;
+			while (!glfwWindowShouldClose(window)){
+				int width,height;
+				glfwGetWindowSize(window,&width,&height);
+				glClearColor(.1,.2,0,1);
+				glClear(GL_COLOR_BUFFER_BIT);
+				ImGui_ImplOpenGL3_NewFrame();
+				ImGui_ImplGlfw_NewFrame();
+				ImGui::NewFrame();
+				ImGui::Begin("ArmSimulator",NULL);
+				//entry point to window
+				ImGui::End();
+				// Renders the ImGUI elements
+				ImGui::Render();
+				ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+				// Swap the back buffer with the front buffer
+				glfwSwapBuffers(window);
+				// Take care of all GLFW events
+				glfwPollEvents();
+			}
+			
+		}
 		public:
 				anim_window_impl(const char* title,const int x,const int y,const int width,const int height,anim_window* parent=nullptr){
 					this->parent=dynamic_cast<anim_window_impl*>(parent);
+					this->winpointer=nullptr;
 					this->winpointer = glfwCreateWindow(width, height, title, NULL, NULL);
-					set_pos(x,y);
-					this->title=new char[1024];
-					strcpy(this->title,title);
-					
+					if (this->winpointer==nullptr){
+						spdlog::warn("Can't create Window");
+						anim_window::finalize();
+					}else{
+						set_pos(x,y);
+						this->title=new char[1024];
+						strcpy(this->title,title);
+						glfwMakeContextCurrent(this->winpointer);
+						glViewport(0, 0, width, height);
+						IMGUI_CHECKVERSION();
+						ImGui::CreateContext();
+						ImGui::StyleColorsDark();
+						ImGui_ImplGlfw_InitForOpenGL(this->winpointer, true);
+						ImGui_ImplOpenGL3_Init("#version 330");
+						anim_window_thread_worker(this);
+						//thread_worker[0]=std::thread(anim_window_thread_worker,this);
+					}
 				}
 				void get_title(char** title){
 					strcpy(*title,this->title);
@@ -86,7 +125,12 @@ namespace anim{
 					return dynamic_cast<anim_window*>(parent);
 				}
 				~anim_window_impl(){
+					//thread_worker[0].join();
 					delete [] title;
+					glfwDestroyWindow(this->winpointer);
+					ImGui_ImplOpenGL3_Shutdown();
+					ImGui_ImplGlfw_Shutdown();
+					ImGui::DestroyContext();
 				}
 				
 	};

@@ -40,6 +40,6 @@ add_subdirectory("third-party/zlib")
 
 add_subdirectory("unit-test")
 
-add_executable(anim-break "main.cc" ${SOURCES})
+add_executable(anim-break "main.cc" ${SOURCES} ${IMGUI_SOURCES})
 
 target_link_libraries(anim-break PUBLIC glfw opengl32 box2d zlib spdlog pugixml)
