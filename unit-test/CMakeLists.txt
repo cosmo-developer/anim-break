@@ -1,7 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 
 project(unit-test)
-include_directories("third-party/doctest")
+include_directories("include" 
+	"third-party/doctest"
+	"third-party/spdlog/include" 
+	"third-party/imgui" 
+	"third-party/imgui/backends"
+	"third-party/glfw/include"
+	)
 
 set(IMGUI_SOURCES2 "../third-party/imgui/imgui.cpp" "../third-party/imgui/imgui_demo.cpp"
 	"../third-party/imgui/imgui_draw.cpp" "../third-party/imgui/imgui_tables.cpp"
