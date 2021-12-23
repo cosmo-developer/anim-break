@@ -24,4 +24,4 @@ set_target_properties(unit-test PROPERTIES
     CXX_EXTENSIONS NO
 )
 
-target_link_libraries(unit-test "doctest_with_main" glfw box2d pugixml zlib spdlog opengl32)
+target_link_libraries(unit-test "doctest_with_main" glfw box2d pugixml spdlog opengl32)

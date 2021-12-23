@@ -10,7 +10,7 @@ DOCTEST_TEST_CASE("WindowManager"){
 	
 	SUBCASE("Checking Creation Of Window"){
 			WHEN("CreatingWindow"){
-				anim::anim_window* window=anim::anim_window::create_anim_window("Hello",100,100,600,500,nullptr);
+				anim::anim_window* window=anim::anim_window::create_anim_window("Hello",300,200,600,500,nullptr);
 				REQUIRE(window!=nullptr);
 				WHEN("Window Created"){
 					THEN("Check Size"){
@@ -18,8 +18,8 @@ DOCTEST_TEST_CASE("WindowManager"){
 						REQUIRE(window->get_height()==500);
 					}
 					THEN("Check Coord"){
-						REQUIRE(window->get_x()==100);
-						REQUIRE(window->get_y()==100);
+						REQUIRE(window->get_x()==300);
+						REQUIRE(window->get_y()==200);
 					}
 					THEN("Main Window(parent should be nullptr)"){
 						REQUIRE(window->get_parent()==nullptr);

@@ -36,10 +36,10 @@ add_subdirectory("third-party/box2d")
 add_subdirectory("third-party/doctest")
 add_subdirectory("third-party/pugixml")
 add_subdirectory("third-party/spdlog")
-add_subdirectory("third-party/zlib")
+#add_subdirectory("third-party/zlib")
 
 add_subdirectory("unit-test")
 
 add_executable(anim-break "main.cc" ${SOURCES} ${IMGUI_SOURCES})
 
-target_link_libraries(anim-break PUBLIC glfw opengl32 box2d zlib spdlog pugixml)
+target_link_libraries(anim-break PUBLIC glfw opengl32 box2d spdlog pugixml)
