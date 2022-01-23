@@ -26,7 +26,7 @@ namespace anim{
 			while (!glfwWindowShouldClose(window)){
 				int width,height;
 				glfwGetWindowSize(window,&width,&height);
-				glClearColor(.1,.2,0,1);
+				glClearColor(0.1f,0.2f,0.0f,1.0f);
 				glClear(GL_COLOR_BUFFER_BIT);
 				ImGui_ImplOpenGL3_NewFrame();
 				ImGui_ImplGlfw_NewFrame();
@@ -54,8 +54,11 @@ namespace anim{
 						anim_window::finalize();
 					}else{
 						set_pos(x,y);
-						this->title=new char[1024];
-						strcpy(this->title,title);
+						#if _WIN32
+							strcpy_s(this->title,strlen(title),title);
+						#else
+							strcpy(this->title,title);
+						#endif
 						glfwMakeContextCurrent(this->winpointer);
 						glViewport(0, 0, width, height);
 						IMGUI_CHECKVERSION();
@@ -68,7 +71,11 @@ namespace anim{
 					}
 				}
 				void get_title(char** title){
-					strcpy(*title,this->title);
+					#if _WIN32
+						strcpy_s(*title,strlen(this->title),this->title);
+					#else
+						strcpy(*title,this->title);
+					#endif
 				}
 				const int get_x(){
 					get_size_property();
@@ -88,7 +95,11 @@ namespace anim{
 				}
 				
 				void set_title(const char* title){
-					strcpy_s(this->title,strlen(title),title);
+					#if _WIN32
+						strcpy_s(this->title,strlen(title),title);
+					#else
+						strcpy(this->title,title);
+					#endif
 					glfwSetWindowTitle(winpointer,this->title);
 				}
 				void set_x(const int x){
